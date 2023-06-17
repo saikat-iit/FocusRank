@@ -71,11 +71,11 @@ def jee_advance(message):
     filename_advance = f'output/{gv.quota}_{gv.stud_name}_advance_{gv.advance_rank}.csv'
     filename_csab = f'output/{gv.quota}_{gv.stud_name}_csab_{gv.main_rank}.csv'
 
-    bot.send_document(chat_id=message.chat.id,data =open(filename_main, 'rb'))
+    bot.send_document(chat_id=message.chat.id, document=open(filename_main, 'rb'))
     try:
-        bot.send_document(chat_id=message.chat.id,data =open(filename_advance, 'rb'))
+        bot.send_document(chat_id=message.chat.id, document=open(filename_advance, 'rb'))
     except Exception as e: pass
-    bot.send_document(chat_id=message.chat.id,data =open(filename_csab, 'rb'))
+    bot.send_document(chat_id=message.chat.id, document=open(filename_csab, 'rb'))
 
 @bot.callback_query_handler(func=lambda call: True)
 def callback_worker(call):

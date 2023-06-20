@@ -32,7 +32,7 @@ class database_backend():
                 & (df['Gender'] == gender)
                 & (df['Seat Type'] == quota)
                 & (df['Closing Rank'] >= main_rank - 300)
-                & (df['Closing Rank'] <= main_rank + 1000)]
+                & (df['Closing Rank'] <= main_rank + 5000)]
         
         nit.drop(['Type'],axis=1)
         nit.to_csv(f'output/{quota}_{stud_name}_mains_{main_rank}.csv', index=False)

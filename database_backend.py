@@ -23,7 +23,7 @@ class database_backend():
         csab = df_csab[(df_csab['Gender'] == gender)
                 & (df_csab['Seat Type'] == quota)
                 & (df_csab['Closing Rank'] >= main_rank - 1000)
-                & (df_csab['Closing Rank'] <= main_rank + 5000)]
+                & (df_csab['Closing Rank'] <= main_rank + 3000)]
         
         
         csab.to_csv(f'output/{quota}_{stud_name}_csab_{main_rank}.csv', index=False)
@@ -31,8 +31,8 @@ class database_backend():
         nit = df[(df['Type'] == 'Mains')
                 & (df['Gender'] == gender)
                 & (df['Seat Type'] == quota)
-                & (df['Closing Rank'] >= main_rank - 1000)]
-                # & (df['Closing Rank'] <= main_rank + 5000)]
+                & (df['Closing Rank'] >= main_rank - 1000)
+                & (df['Closing Rank'] <= main_rank + 3000)]
         
         nit.drop(['Type'],axis=1)
         nit.to_csv(f'output/{quota}_{stud_name}_mains_{main_rank}.csv', index=False)
